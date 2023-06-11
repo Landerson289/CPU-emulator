@@ -1,0 +1,29 @@
+INP
+
+LDL
+STO 11111110
+LDD 00000001
+SUB 11111110
+STO 11111110
+
+# Input file location
+STO 11111111
+# Store location for file at 11111111
+INC
+# Input first value of file
+BRO 01000000
+# Branch and go to empty location which will be run as EXT
+STO 10000000
+# Store file value at a hold location 10000000
+
+#Store the file value at the file location
+
+STV 11111111
+
+#Iterate
+LDD 00000001
+ADD 11111111
+STO 11111111
+
+LDA 11111110
+GTR
