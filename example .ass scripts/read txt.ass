@@ -1,0 +1,24 @@
+INP
+#Get file location from user
+
+LDL
+STO 11111110
+LDD 00000001
+SUB 11111110
+STO 11111110
+#Get location to return to and store it at 11111110
+
+STO 11111111
+LDR
+BRO 11111100
+OPC
+LDD 00000001
+ADD 11111111
+#Output the value stored at the location and add one to the location
+
+LDA 11111110
+GTR
+#Return to
+
+
+### Code to read a text file at the location specified by the user.
