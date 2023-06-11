@@ -1,0 +1,59 @@
+INP
+# Input file location
+STO 11111111
+# Store location for file at 11111111
+
+
+
+INC
+STO 11111101
+# Input first value of file
+
+LDL
+STO 11111110
+LDD 00000011
+SUB 11111110
+STO 11111110
+LDA 11111101
+#Get posistion of code that will be returned to
+
+
+BRO 00100001
+
+STO 11111101
+# Store file value at a hold location 10000000
+
+#Store the file value at the file location
+
+STV 11111111
+
+#Iterate
+LDD 00000001
+ADD 11111111
+STO 11111111
+LDA 11111110
+GTR
+
+
+
+INP
+STO 11111111
+# Store the file location at 11111111
+
+LDL
+STO 11111110
+LDD 00000000
+ADD 11111110
+STO 11111110
+# Find the point to go back to
+
+LDA 11111111
+LDR
+BRO 11111100
+OPC
+LDD 00000001
+ADD 11111111
+STO 11111111
+
+LDA 11111110
+GTR
