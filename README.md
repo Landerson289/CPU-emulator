@@ -10,12 +10,34 @@ The code reads through the code one byte at a time, performing the fetch, decode
 ## Assembling
 This code runs through the assembly.ass file to convert it to machine code by using the commands.txt file to convert keywords to its corresponding byte. 
 
-## CURRENT FRAMEWORK
+## Framework
+### Current
 * Code starts at 00000000
 * Variables are stored at 10000000 for the language
 * Addresses at the end of the memory are being used for temporary values.
 
-## PLANNED FRAMEWORK
+### Planned
 * Some sections of the Memory should be presaved for programmes like reading and writing to variables for the language etc. These should perhaps be a certain length, ei 255 bytes. This should  allow the user to pass in 'parameters' by storing values in specific slots. It should also return values and continue the code being run before.
 * File system which can store .txt files. The code for this is already written but should be updated to be more dynamic and to intergrate with updated framework.
 * A system to convert .ass files stored like text files to executable machine code.
+
+## Language
+### Syntax
+Some example syntax for the language which will be implimented into the computer, using variable names v and V. Variable names can only be a character long
+
+Create a new variable:
+
+    new v;
+
+Assign a value to the variable:
+
+    set V = 1;
+
+Output the variable:
+
+    out v;
+  
+### Compiling
+A vague overview is:
+Loop over the file and check for and new variable creations, store the variable name at the correct location (in a list at 10000000)
+Then loop over again and set,output etc any variables.
