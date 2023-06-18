@@ -1,0 +1,54 @@
+INP
+STO 11111111
+#Get the variable name and store at 11111111
+
+
+
+#####################################
+### Find where the name is stored ###
+
+#while address != 00000000:
+#  if address == name:
+#    break
+#  else:
+#    address += 2
+
+
+LDL
+STO 11111100
+LDD 00001101
+ADD 11111100
+STO 11111100
+
+LDD 10000000
+STO 11111101
+#Location being checked stored at 11111101
+
+LDA 11111101
+LDR
+#Load the value at the location being checked
+EQU 11111111
+# Check if the value being checked is equal to the name
+BRP #Go to the address containing the line that says STO 11111101. This will depend on how its been assembled
+#Break
+
+LDD 00000010
+ADD 11111101
+STO 11111101
+
+LDA 11111100
+GTR
+
+
+
+#####################################
+
+LDD 00000001
+ADD 11111101
+STO 11111101
+#Add one to that location
+
+#OUTPUT
+LDA 11111101
+LDR
+OUT
