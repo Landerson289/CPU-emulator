@@ -1,0 +1,35 @@
+LDD 10000000
+STO 11111111
+# Count variable stored at 11111111 which counts where the variables are being stored
+
+INC
+#Get the name
+STO 11111101
+#Store it in a holding slot
+
+LDL
+STO 11111110
+LDD 00000011
+SUB 11111110
+STO 11111110
+# Store the position of the input at 11111110
+
+BRO 111111100
+# Go to either a null address to exit or the nex section of code
+
+LDA 11111101
+STV 11111111
+#Store the name 
+
+LDD 00000010
+ADD 11111111
+STO 11111111
+#Increment the count
+
+LDA 11111110
+GTR
+#Go to the value in the register
+
+
+#NOTES:
+#For this code to work, the following slots must not be interferred with: 11111111; 11111110; 11111101; 111111100
